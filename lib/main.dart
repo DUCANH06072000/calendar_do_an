@@ -1,4 +1,5 @@
 import 'package:calendar_do_an/pages/home/binding/home_binding.dart';
+import 'package:calendar_do_an/pages/main/binding/main_binding.dart';
 import 'package:calendar_do_an/resources/style/color.dart';
 import 'package:calendar_do_an/routes/app_pages.dart';
 import 'package:calendar_do_an/routes/app_routes.dart';
@@ -45,8 +46,8 @@ class _MyAppState extends State<MyApp> {
 
     return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.HOME,
-      initialBinding: HomeBinding(),
+      initialRoute: Routes.MAIN,
+      initialBinding: MainBinding(),
       theme: AppTheme.getAppTheme(),
       defaultTransition: Transition.fade,
       getPages: AppPages.pages,

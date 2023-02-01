@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String imagesIconMenu = 'assets/images/icon_menu.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String translationsEnUS = 'assets/translations/en-US.json';
   static const String translationsViVN = 'assets/translations/vi-VN.json';
