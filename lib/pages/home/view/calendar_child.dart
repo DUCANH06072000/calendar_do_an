@@ -1,5 +1,6 @@
 import 'package:calendar_do_an/pages/home/view/home_screen.dart';
 import 'package:calendar_do_an/widget/calendar_widget.dart';
+import 'package:calendar_do_an/widget/infor_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,22 +17,60 @@ extension CalendarHome on HomeScreen {
         SizedBox(
           height: 20.h,
         ),
-        const Center(
-          child: Text("time",
-              style: TextStyle(
-                  color: AppColor.black100,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            /// chọn tháng
+            Container(
+                height: 31.h,
+                width: 75.w,
+                decoration: const BoxDecoration(
+                  border: Border(bottom: BorderSide(width: 2), top: BorderSide(width: 2)),
+                ),
+                child: ListWheelScrollView(
+                  controller: controller.controllerScroll,
+                  perspective: 0.007,
+                  diameterRatio: 2,
+                  physics: FixedExtentScrollPhysics(),
+                  onSelectedItemChanged: (index) {
+                    controller.chooseMonth(index);
+                  },
+                  itemExtent: 40,
+                  children: controller.month,
+                )),
+            SizedBox(
+              width: 30.w,
+            ),
+
+            /// chọn năm
+            Container(
+                height: 31.h,
+                width: 70.w,
+                decoration: const BoxDecoration(
+                  border: Border(bottom: BorderSide(width: 2), top: BorderSide(width: 2)),
+                ),
+                child: ListWheelScrollView(
+                  controller: controller.controllerScrollYear,
+                  perspective: 0.007,
+                  physics: FixedExtentScrollPhysics(),
+                  onSelectedItemChanged: (index) {
+                    controller.chooseYear(index);
+                  },
+                  itemExtent: 50,
+                  children: controller.year,
+                )),
+          ],
         ),
         Container(
             height: 50.h,
             child: ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: 7,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                    margin: EdgeInsets.only(left: 30.w),
-                    height: 50.h,
+                    padding: EdgeInsets.only(left: 33.w),
                     child: Center(
                         child: Text(
                       index + 2 == 8 ? "CN" : 'T${index + 2}',
@@ -39,10 +78,13 @@ extension CalendarHome on HomeScreen {
                     )),
                   );
                 })),
+
         Container(
-            height: 300.h,
+            height: 320.h,
             margin: EdgeInsets.only(left: 10.w, right: 10.w),
             child: GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.only(bottom: 20.h),
                 itemCount: controller.calendarBloc.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 7,
@@ -54,13 +96,32 @@ extension CalendarHome on HomeScreen {
                       TextButton(
                         onPressed: () {},
                         child: Visibility(
-                            child: Text(
-                          "${controller.calendarBloc[index]}",
-                          style: const TextStyle(
-                              color: AppColor.black,
-                              fontWeight: FontWeight.w600),
-                        ),visible: controller.hideDay(index),),
-                      )
+                          child: Container(
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "${controller.calendarBloc[index]}",
+                                    style: TextStyle(
+                                        color: controller.colorText(index),
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  Text("2 sự kiện",style: TextStyle(fontSize: 5,color: controller.colorText(index)),)
+                                ],
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                color: controller.colorsBox(index),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(18))),
+                            width: 30.w,
+                            height: 30.h,
+                          ),
+                          visible: controller.hideDay(index),
+                        ),
+                      ),
                     ],
                   );
                 })),

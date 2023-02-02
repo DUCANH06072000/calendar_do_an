@@ -15,20 +15,30 @@ class AppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.only(top: 40.h),
+          color: Colors.green,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(width: 16.w,),
+             IconButton(onPressed: onPressed, icon: Image.asset(Assets.imagesIconMenu)),
+              SizedBox(width: 16.w,),
+              Text(title,style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: AppColor.white),
+              )
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget body(){
     return Container(
-      padding: EdgeInsets.only(top: 40.h),
-      color: Colors.green,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(width: 16.w,),
-         IconButton(onPressed: onPressed, icon: Image.asset(Assets.imagesIconMenu)),
-          SizedBox(width: 16.w,),
-          Text(title,style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: AppColor.white),
-          )
-        ],
-      ),
+      child: Image.asset(Assets.imagesHomePage),
     );
   }
 }

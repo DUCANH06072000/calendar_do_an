@@ -45,6 +45,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
           child: Row(children: [
             TButton(
                 child: Column(children: [
+                  Image.asset(
+                          index==0
+                          ?Assets.imagesIcons8Home
+                          :Assets.imagesHomePage,
+                      width: 24,
+                      height: 24),
                   const SizedBox(height: 4),
                   Text(
                     tr('navigation.home'),
@@ -66,9 +72,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
             TButton(
                 child: Column(
                   children: [
+                    Image.asset(
+                        Assets.imagesIcons8Iot64,
+                        width: 24,
+                        height: 24),
                     const SizedBox(height: 4),
                     Text(
-                      tr('navigation.shop'),
+                      "Tiện ích",
                       style: TextStyle(
                         fontSize: 12,
                         fontFamily: 'RobotoRegular',
@@ -88,9 +98,15 @@ class _BottomNavigationState extends State<BottomNavigation> {
             TButton(
                 child: Column(
                   children: [
+                    Image.asset(
+                        index==2
+                            ?Assets.imagesIcons8Chat
+                            :Assets.imagesIcons8ChatRoom48,
+                        width: 24,
+                        height: 24),
                     const SizedBox(height: 4),
                     Text(
-                      tr('navigation.warranty'),
+                      "Chat GPT",
                       style: TextStyle(
                         fontSize: 12,
                         fontFamily: 'RobotoRegular',
@@ -110,6 +126,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
             TButton(
                 child: Column(
                   children: [
+                    Image.asset(
+                        index==3
+                            ?Assets.imagesIcons8NameGif
+                            :Assets.imagesIcons8Name50,
+                        width: 24,
+                        height: 24),
                     const SizedBox(height: 4),
                     Text(
                       tr('navigation.account'),

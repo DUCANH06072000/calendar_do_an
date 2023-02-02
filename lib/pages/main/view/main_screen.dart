@@ -1,4 +1,5 @@
 import 'package:calendar_do_an/widget/bottomnavigaton.dart';
+import 'package:calendar_do_an/widget/navbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +10,11 @@ class MainScreen extends GetView<MainController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => Scaffold(
+    return Obx(() => WillPopScope(
+      onWillPop: () async {
+        return controller.onBackPressed(context);
+      },
+      child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: GestureDetector(
           onTap: () {
@@ -17,15 +22,11 @@ class MainScreen extends GetView<MainController> {
           },
           child: controller.getPage(),
         ),
-        bottomNavigationBar: BottomNavigation(onPageChange: (index) {
+        bottomNavigationBar: BottomNavigation(onPageChange: (index){
           controller.tabIndex.value = index;
         }),
-        // drawer: ClipRRect(
-        //   borderRadius:
-        //       BorderRadius.horizontal(right: Radius.circular(16.r)),
-        //   child: Drawer(child: MyDrawer()),
-        // ),
+        drawer: NavBar(),
       ),
-    );
+    ));
   }
 }
