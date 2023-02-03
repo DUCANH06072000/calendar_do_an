@@ -1,12 +1,13 @@
 import 'package:calendar_do_an/data/model/navibar.dart';
 import 'package:calendar_do_an/generated/assets.dart';
+import 'package:calendar_do_an/routes/app_routes.dart';
+import 'package:calendar_do_an/untils/log/log_util.dart';
 import 'package:calendar_do_an/widget/infor_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:get/get.dart';
 class NavBar extends StatelessWidget {
-
   NavBar({Key? key}) : super(key: key);
 
   @override
@@ -50,23 +51,32 @@ class NavBar extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                     color: Colors.red),
                 child: IconButton(
-                  onPressed: () {}, icon: Image.asset(Assets.imagesLogo),),
+                  onPressed: () {},
+                  icon: Image.asset(Assets.imagesLogo),
+                ),
               )
             ],
           ),
-          SizedBox(height: 16.h,),
+          SizedBox(
+            height: 16.h,
+          ),
           Container(
-              child: TextWidget(label: "Nguyễn Đức Anh",
-                size: 16,
-                fontWeight: FontWeight.w700,)),
-          SizedBox(height: 16.h,),
+              child: TextWidget(
+            label: "Nguyễn Đức Anh",
+            size: 16,
+            fontWeight: FontWeight.w700,
+          )),
+          SizedBox(
+            height: 16.h,
+          ),
           Container(
-              child: TextWidget(label: "Bosin233@gmail.com",
-                size: 16,
-                fontWeight: FontWeight.w500,)),
+              child: TextWidget(
+            label: "Bosin233@gmail.com",
+            size: 16,
+            fontWeight: FontWeight.w500,
+          )),
         ],
       ),
-
     );
   }
 
@@ -91,17 +101,30 @@ class NavBar extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Image.asset(data[index].icon, width: 24.w, height: 24.h,),
-                      SizedBox(width: 12.w,),
-                      TextWidget(
-                        label: data[index].label, fontWeight: FontWeight.w600,),
+                      Image.asset(
+                        data[index].icon,
+                        width: 24.w,
+                        height: 24.h,
+                      ),
+                      SizedBox(
+                        width: 12.w,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                            if(index==3){
+                              Get.toNamed(Routes.JOBDONE);
+                            }
+                            else if(index == 0){
+                              Get.toNamed(Routes.MAIN);
+                            }
+                        },
+                        child: TextWidget(
+                          label: data[index].label,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      )
                     ],
-                  )
-              );
-            }
-        )
-    );
+                  ));
+            }));
   }
-
-
 }

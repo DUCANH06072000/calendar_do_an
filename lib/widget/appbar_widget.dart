@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AppBarWidget extends StatelessWidget {
   String title;
-  String content;
+  String image;
   final VoidCallback? onPressed;
    AppBarWidget({
+     required this.image,
    required this.onPressed,
   required this.title,
-  required this.content,
   Key? key}) : super(key: key);
 
   @override
@@ -25,7 +25,7 @@ class AppBarWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(width: 16.w,),
-             IconButton(onPressed: onPressed, icon: Image.asset(Assets.imagesIconMenu)),
+             IconButton(onPressed: onPressed, icon: Image.asset(image)),
               SizedBox(width: 16.w,),
               Text(title,style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: AppColor.white),
               )

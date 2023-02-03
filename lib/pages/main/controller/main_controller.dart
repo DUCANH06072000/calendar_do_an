@@ -1,4 +1,5 @@
 import 'package:calendar_do_an/pages/base/controller/base_controller.dart';
+import 'package:calendar_do_an/pages/gpt/view/gpt_screen.dart';
 import 'package:calendar_do_an/pages/home/view/home_screen.dart';
 import 'package:calendar_do_an/pages/utilities/view/utilities_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,12 +18,13 @@ class MainController extends BaseController {
   Widget getPage() {
     switch (tabIndex.value) {
       case 1:
-        return HomeScreen();
-      case 2:
         return UtilitiesScreen();
+      case 2:
+        return GptScreen();
       case 3:
         return HomeScreen();
       case 0:
+        return HomeScreen();
       default:
         return HomeScreen();
     }

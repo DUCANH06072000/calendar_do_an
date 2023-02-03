@@ -1,3 +1,4 @@
+import 'package:calendar_do_an/generated/assets.dart';
 import 'package:calendar_do_an/pages/home/view/home_screen.dart';
 import 'package:calendar_do_an/pages/main/view/main_screen.dart';
 import 'package:calendar_do_an/resources/style/color.dart';
@@ -11,11 +12,10 @@ extension AppBarScreen on HomeScreen {
   Widget appBar() {
     return Builder(builder: (MainScreen){
       return AppBarWidget(
-        content: 'Chọn các nội dung khác trên Menu',
         title: 'Thời khóa biểu',
         onPressed: () {
           Scaffold.of(context).openDrawer();
-        },
+        }, image: Assets.imagesIconMenu,
       );
     });
   }

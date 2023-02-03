@@ -55,6 +55,10 @@ dev_dependencies:
   easy_localization: ^3.0.0
   focus_detector: ^2.0.1
   flutter_screenutil: ^5.5.3+1
+  chat_gpt_sdk:
+    git:
+      url: https://github.com/iampawan/Flutter-ChatGPT.git
+  velocity_x: ^3.6.0
 
 
 # For information on the generic Dart part of this file, see the

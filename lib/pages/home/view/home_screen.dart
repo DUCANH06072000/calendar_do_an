@@ -26,11 +26,7 @@ class HomeScreen extends BaseScreen<HomeController>{
         ),
       );
   }
-
-  @override
-  bool isIconBrightnessLight() {
-    return false;
-  }
+  
 
 
 }
