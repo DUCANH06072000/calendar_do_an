@@ -110,7 +110,7 @@ class HomeController extends BaseController {
     WidgetsBinding.instance?.addPostFrameCallback((_) {
       controllerScroll.animateToItem(
           controllerScroll.selectedItem + (nowMonth - 1),
-          duration: Duration(microseconds: 1),
+          duration: const Duration(microseconds: 1),
           curve: Curves.easeOut);
     });
 
