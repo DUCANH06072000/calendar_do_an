@@ -82,7 +82,7 @@ class GptController extends BaseController {
   @override
   Future<void> onInitData() async {
     chatGPT = ChatGPT.instance.builder(
-      "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",
+      "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",
     );
     Log().e(chatGPT.toString());
   }
