@@ -1,3 +1,5 @@
+import 'package:calendar_do_an/pages/alljob/binding/job_binding.dart';
+import 'package:calendar_do_an/pages/alljob/view/job_screen.dart';
 import 'package:calendar_do_an/pages/gpt/binding/gpt_binding.dart';
 import 'package:calendar_do_an/pages/gpt/view/gpt_screen.dart';
 import 'package:calendar_do_an/pages/home/binding/home_binding.dart';
@@ -32,6 +34,7 @@ class AppPages {
     GetPage(
         name: Routes.JOBDONE,
         page: () => JobDoneScreen(),
-        binding: JobDoneBinding())
+        binding: JobDoneBinding()),
+    GetPage(name: Routes.JOB, page: () => JobScreen(), binding: JobBinding())
   ];
 }

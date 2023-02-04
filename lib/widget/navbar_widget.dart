@@ -117,6 +117,9 @@ class NavBar extends StatelessWidget {
                             else if(index == 0){
                               Get.toNamed(Routes.MAIN);
                             }
+                            else if(index == 1){
+                              Get.toNamed(Routes.JOB);
+                            }
                         },
                         child: TextWidget(
                           label: data[index].label,

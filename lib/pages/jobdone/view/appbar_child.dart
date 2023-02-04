@@ -2,7 +2,7 @@ import 'package:calendar_do_an/generated/assets.dart';
 import 'package:calendar_do_an/pages/jobdone/view/jobdone_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../../../widget/appbar_widget.dart';
 
 extension AppBar on JobDoneScreen{
@@ -12,7 +12,8 @@ extension AppBar on JobDoneScreen{
       return AppBarWidget(
         title: 'Công việc đã hoàn thành',
         onPressed: () {
-        }, image: Assets.imagesIcons8All58,
+          Get.back();
+        }, image: Assets.imagesIcons8BackArrow64,
       );
     });
   }

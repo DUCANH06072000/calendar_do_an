@@ -5,6 +5,7 @@ class Assets {
   static const String imagesHomePage = 'assets/images/home-page.png';
   static const String imagesIconMenu = 'assets/images/icon_menu.png';
   static const String imagesIcons8All58 = 'assets/images/icons8-all-58.png';
+  static const String imagesIcons8BackArrow64 = 'assets/images/icons8-back-arrow-64.png';
   static const String imagesIcons8Business50 = 'assets/images/icons8-business-50.png';
   static const String imagesIcons8Chat = 'assets/images/icons8-chat.gif';
   static const String imagesIcons8ChatRoom48 = 'assets/images/icons8-chat-room-48.png';

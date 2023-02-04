@@ -4,5 +4,6 @@ abstract class Routes{
   static const UTILITIES = '/Utilities';
   static const GPT = '/gpt';
   static const JOBDONE = '/jondone';
+  static const JOB = '/job';
 
 }
